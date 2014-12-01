@@ -13,11 +13,11 @@ ACS_XXOX = "\u2534"
 ACS_XOXX = "\u2524"
 ACS_OXXX = "\u252C"
 ACS_XXXX = "\u253C"
-ACS_XOOO = ACS_XOXO
-ACS_OXOO = ACS_OXOX
-ACS_OOXO = ACS_XOXO
-ACS_OOOX = ACS_OXOX
-ACS_OOOO = ACS_XXXX
+ACS_XOOO = "\u2575"
+ACS_OXOO = "\u2576"
+ACS_OOXO = "\u2577"
+ACS_OOOX = "\u2574"
+ACS_OOOO = "\u25AB"
 #define LINE_XOXO 4194424 // '|' Vertical line. ncurses: ACS_VLINE; Unicode: U+2502
 #define LINE_OXOX 4194417 // '-' Horizontal line. ncurses: ACS_HLINE; Unicode: U+2500
 #define LINE_XXOO 4194413 // '|_' Lower left corner. ncurses: ACS_LLCORNER; Unicode: U+2514
@@ -99,48 +99,48 @@ def imprime_forme(tab):
           # sud
            # ouest
         if (tab[y-1][x] > 0):
-         if (tab[y][x-1] > 0):
+         if (tab[y][x+1] > 0):
           if (tab[y+1][x] > 0):
-           if (tab[y][x+1] > 0):
+           if (tab[y][x-1] > 0):
             print(ACS_XXXX,end="")
            else:
             print(ACS_XXXO,end="")
           else:
-           if (tab[y][x+1] > 0):
+           if (tab[y][x-1] > 0):
             print(ACS_XXOX,end="")
            else:
             print(ACS_XXOO,end="")
          else:
           if (tab[y+1][x] > 0):
-           if (tab[y][x+1] > 0):
+           if (tab[y][x-1] > 0):
             print(ACS_XOXX,end="")
            else:
             print(ACS_XOXO,end="")
           else:
-           if (tab[y][x+1] > 0):
+           if (tab[y][x-1] > 0):
             print(ACS_XOOX,end="")
            else:
             print(ACS_XOOO,end="")
         else:
-         if (tab[y][x-1] > 0):
+         if (tab[y][x+1] > 0):
           if (tab[y+1][x] > 0):
-           if (tab[y][x+1] > 0):
+           if (tab[y][x-1] > 0):
             print(ACS_OXXX,end="")
            else:
             print(ACS_OXXO,end="")
           else:
-           if (tab[y][x+1] > 0):
+           if (tab[y][x-1] > 0):
             print(ACS_OXOX,end="")
            else:
             print(ACS_OXOO,end="")
          else:
           if (tab[y+1][x] > 0):
-           if (tab[y][x+1] > 0):
+           if (tab[y][x-1] > 0):
             print(ACS_OOXX,end="")
            else:
             print(ACS_OOXO,end="")
           else:
-           if (tab[y][x+1] > 0):
+           if (tab[y][x-1] > 0):
             print(ACS_OOOX,end="")
            else:
             print(ACS_OOOO,end="")
